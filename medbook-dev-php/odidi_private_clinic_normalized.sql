@@ -30,7 +30,7 @@ CREATE TABLE `tbl_appointments` (
 
 CREATE TABLE `tbl_appointment_services` (
 	`id` int NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	`appointment_id` int NOT NULL,
+	`patient_id` int NOT NULL,
 	`service_id` int NOT NULL
 );
 
@@ -38,6 +38,6 @@ ALTER TABLE `tbl_patient` ADD CONSTRAINT `tbl_patient_fk0` FOREIGN KEY (`gender_
 
 ALTER TABLE `tbl_appointments` ADD CONSTRAINT `tbl_appointments_fk0` FOREIGN KEY (`patient_id`) REFERENCES `tbl_patient`(`id`);
 
-ALTER TABLE `tbl_appointment_services` ADD CONSTRAINT `tbl_appointment_services_fk0` FOREIGN KEY (`appointment_id`) REFERENCES `tbl_appointments`(`id`);
+ALTER TABLE `tbl_appointment_services` ADD CONSTRAINT `tbl_appointment_services_fk0` FOREIGN KEY (`patient_id`) REFERENCES `tbl_patient`(`id`);
 
 ALTER TABLE `tbl_appointment_services` ADD CONSTRAINT `tbl_appointment_services_fk1` FOREIGN KEY (`service_id`) REFERENCES `tbl_services`(`id`);
